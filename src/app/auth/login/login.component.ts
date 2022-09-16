@@ -1,5 +1,7 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from 'src/app/model/user';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -16,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   hide = true;
   email = new FormControl('', [Validators.required, Validators.email]);
-  constructor(private authService: AuthService) { 
+  constructor(private authService: AuthService,private router: Router) { 
       this.user=new User();
   }
 
@@ -32,10 +34,15 @@ export class LoginComponent implements OnInit {
   }
 
   loginSubmit(){
-    console.log(this.user)
-    this.authService.loginIn(this.user)
-        .subscribe(user=>this.user=user)
-   
+    //console.log(this.user)
+    this.authService.loginIn(this.user).subscribe(response=>{
+      if(response.status==200){
+        this.router.navigate(["/home"])
+      }
+      return response;
+    }
+    )
+       
   }
 
 }
