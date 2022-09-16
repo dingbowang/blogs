@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="flex justify-center h-screen">
+        <form class="p-4 rounded-lg border m-auto w-1/3" (ngSubmit)="loginSubmit()" #loginForm="ngForm">
+            <h1 class="flex justify-center">login</h1>
+            <!-- <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" class="border p-2 w-full rounded" placeholder="Email Address"  name="email" [(ngModel)]="user.email">
+            </div> -->
+            <div>
+                <label for="mobile">Mobile</label>
+                <input type="text" id="mobile" class="border p-2 w-full rounded" placeholder="Mobile Number"  name="mobile" [(ngModel)]="user.mobile">
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="password" class="border p-2 w-full rounded" id="password"  placeholder="Password Address"  [(ngModel)]="user.password">
+            </div>
+            
+            <div>
+                <input type="submit" value="login" class=" p-2 bg-blue-400 text-white hover:bg-blue-100 rounded w-full" matRipple>
+            </div>
+            <mat-chip-list aria-label="Fish selection" class=" flex justify-end"> 
+            <mat-chip color="accent" selected>
+                <a href="/register">register</a>
+              </mat-chip>
+            </mat-chip-list>
+            
+        </form>
+    </div>
+</body>
+</html>
+
