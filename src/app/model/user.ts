@@ -1,9 +1,16 @@
-export class User {
+import { Base } from "./base"
+
+export class User extends Base{
     // id: string
     // username: string
     password: number | undefined
     email: string    | undefined
     mobile: number   | undefined
+
+
+
+
+    
 
 
 
@@ -25,7 +32,7 @@ export class User {
 
   
   constructor(){
-
+      super()
   }
 
 }
